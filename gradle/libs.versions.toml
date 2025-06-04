@@ -20,8 +20,14 @@ dataStore = "1.1.7"
 retrofit = "3.0.0"
 workManager = "2.10.1"
 desugar = "2.1.5"
-appcompat = "1.7.1"
-material = "1.12.0"
+
+# Project config
+projectVersionName = "1.0"
+projectApplicationId = "com.roblesdotdev.habits"
+projectMinSdkVersion = "24"
+projectCompileSdkVersion = "35"
+projectTargetSdkVersion = "35"
+projectVersionCode = "1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -55,8 +61,6 @@ androidx-datastore-preferences-core = { module = "androidx.datastore:datastore-p
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workManager" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 # complileOnly
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
@@ -74,3 +78,6 @@ google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 androidx-room = { id = "androidx.room", version.ref = "room" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref ="hilt" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+# Convention plugins
+habits-android-application = { id = "habits.android.application", version = "unespecified" }
