@@ -81,3 +81,4 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 
 # Convention plugins
 habits-android-application = { id = "habits.android.application", version = "unespecified" }
+habits-android-application-compose = { id = "habits.android.application.compose", version = "unespecified" }
