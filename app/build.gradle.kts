@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.habits.android.application.compose)
     alias(libs.plugins.habits.android.hilt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -24,6 +25,9 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
+
+    // Navigation
+    implementation(libs.androidx.compose.navigation)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
