@@ -33,5 +33,9 @@ gradlePlugin {
             id = "habits.jvm.library"
             implementationClass = "JvmLibraryConventionPlugin"
         }
+        register("androidFeatureUI") {
+            id = "habits.android.feature.ui"
+            implementationClass = "AndroidFeatureUIConventionPlugin"
+        }
     }
 }
