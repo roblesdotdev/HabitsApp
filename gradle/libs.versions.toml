@@ -84,3 +84,4 @@ habits-android-application = { id = "habits.android.application", version = "une
 habits-android-application-compose = { id = "habits.android.application.compose", version = "unespecified" }
 habits-jvm-library = { id = "habits.jvm.library", version = "unespecified" }
 habits-android-library = { id = "habits.android.library", version = "unespecified" }
+habits-android-library-compose = { id = "habits.android.library.compose", version = "unespecified" }
