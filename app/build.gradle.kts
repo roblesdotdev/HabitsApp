@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.habits.android.application.compose)
+    alias(libs.plugins.habits.android.hilt)
 }
 
 android {
