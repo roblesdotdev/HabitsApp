@@ -25,6 +25,10 @@ gradlePlugin {
             id = "habits.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
+        register("androidLibraryCompose") {
+            id = "habits.android.library.compose"
+            implementationClass = "AndroidLibraryComposeConventionPlugin"
+        }
         register("jvmLibrary") {
             id = "habits.jvm.library"
             implementationClass = "JvmLibraryConventionPlugin"
