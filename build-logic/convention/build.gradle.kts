@@ -37,5 +37,9 @@ gradlePlugin {
             id = "habits.android.feature.ui"
             implementationClass = "AndroidFeatureUIConventionPlugin"
         }
+        register("androidHilt") {
+            id = "habits.android.hilt"
+            implementationClass = "AndroidHiltConventionPlugin"
+        }
     }
 }

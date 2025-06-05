@@ -86,6 +86,7 @@ habits-jvm-library = { id = "habits.jvm.library", version = "unespecified" }
 habits-android-library = { id = "habits.android.library", version = "unespecified" }
 habits-android-library-compose = { id = "habits.android.library.compose", version = "unespecified" }
 habits-android-feature-ui = { id = "habits.android.feature.ui", version = "unespecified" }
+habits-android-hilt = { id = "habits.android.hilt", version = "unespecified" }
 
 [bundles]
 compose = [
@@ -100,4 +101,8 @@ compose = [
 compose-debug = [
     "androidx-compose-ui-tooling",
     "androidx-compose-ui-test-manifest",
+]
+hilt = [
+    "hilt-core",
+    "hilt-navigation-compose"
 ]
