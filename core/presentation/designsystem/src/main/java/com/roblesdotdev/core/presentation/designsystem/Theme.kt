@@ -1,25 +1,36 @@
 package com.roblesdotdev.core.presentation.designsystem
 
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.lightColorScheme
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 
-private val LightColorScheme = lightColorScheme(
-    primary = Primary,
-    secondary = Background,
-    tertiary = Accent,
-    background = Background,
-    onPrimary = Accent,
-    onSurface = Primary,
-    onBackground = Primary,
-    onTertiary = Primary
+private val DarkColorScheme = darkColorScheme(
+    background = background,
+    surface = surface,
+    surfaceBright = surfaceBright,
+    primary = primary,
+    tertiary = tertiary,
+    onBackground = onBackground,
+    onPrimary = onPrimary,
+    onSurface = onSurface,
+    onSurfaceVariant = onSurfaceVariant,
+    surfaceContainer = surfaceContainer,
+    error = error,
 )
+
+val ColorScheme.success: Color
+    @Composable get() = successContent
+
+val ColorScheme.neutral10: Color
+    @Composable get() = neutral10Container
 
 @Composable
 fun HabitsAppTheme(
     content: @Composable () -> Unit
 ) {
-    val colorScheme = LightColorScheme
+    val colorScheme = DarkColorScheme
 
     MaterialTheme(
         colorScheme = colorScheme,
