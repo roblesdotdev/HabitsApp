@@ -26,6 +26,9 @@ val ColorScheme.success: Color
 val ColorScheme.neutral10: Color
     @Composable get() = neutral10Container
 
+val ColorScheme.neutral50: Color
+    @Composable get() = neutral50Container
+
 @Composable
 fun HabitsAppTheme(
     content: @Composable () -> Unit
@@ -35,6 +38,7 @@ fun HabitsAppTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
+        shapes = Shapes,
         content = content
     )
 }
