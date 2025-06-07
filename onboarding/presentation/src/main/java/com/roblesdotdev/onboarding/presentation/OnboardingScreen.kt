@@ -9,7 +9,6 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.roblesdotdev.core.presentation.designsystem.success
 
 @Composable
 fun OnboardingScreen(
@@ -19,10 +18,10 @@ fun OnboardingScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         TextButton(onClick = onCompleteOnboarding) {
-            Text("Get started", color = MaterialTheme.colorScheme.success)
+            Text("Get Started", color = MaterialTheme.colorScheme.onBackground)
         }
     }
 }
