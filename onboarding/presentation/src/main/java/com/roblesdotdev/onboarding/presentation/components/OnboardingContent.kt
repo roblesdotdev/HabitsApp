@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import com.roblesdotdev.core.presentation.designsystem.HabitsAppTheme
 import com.roblesdotdev.core.presentation.designsystem.components.PrimaryButton
 import com.roblesdotdev.core.presentation.designsystem.components.SecondaryButton
+import com.roblesdotdev.onboarding.presentation.OnboardingAction
 import com.roblesdotdev.onboarding.presentation.OnboardingStep
 import com.roblesdotdev.onboarding.presentation.defaultOnboardingSteps
 import kotlinx.coroutines.launch
@@ -35,6 +36,7 @@ import kotlinx.coroutines.launch
 fun OnboardingContent(
     modifier: Modifier = Modifier,
     pages: List<OnboardingStep>,
+    onAction: (OnboardingAction) -> Unit,
     onCompleteOnboarding: () -> Unit,
 ) {
     val pagerState = rememberPagerState(pageCount = { pages.size })
@@ -91,7 +93,10 @@ fun OnboardingContent(
         Spacer(Modifier.height(72.dp))
 
         if (pagerState.currentPage == pages.lastIndex) {
-            PrimaryButton(onClick = onCompleteOnboarding, text = "Get Started")
+            PrimaryButton(onClick = {
+                onAction(OnboardingAction.CompleteOnboarding)
+                onCompleteOnboarding()
+            }, text = "Get Started")
         } else {
             SecondaryButton(onClick = {
                 coroutineScope.launch {
@@ -109,7 +114,8 @@ private fun OnboardingScreenPreview() {
         Surface {
             OnboardingContent(
                 pages = defaultOnboardingSteps,
-                onCompleteOnboarding = {}
+                onCompleteOnboarding = {},
+                onAction = {}
             )
         }
     }
