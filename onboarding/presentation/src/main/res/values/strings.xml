@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding1_title">Build Lasting Habits</string>
+    <string name="onboarding1_desc">Set clear daily goals and create simple routines that truly stick.</string>
+    <string name="onboarding2_title">Offline, Always Ready</string>
+    <string name="onboarding2_desc">Track your habits anytime — no internet or account required.</string>
+    <string name="onboarding3_desc">Set flexible, personalized reminders so you never miss a habit.</string>
+    <string name="onboarding3_title">Stay On Track With Alerts</string>
+</resources>
