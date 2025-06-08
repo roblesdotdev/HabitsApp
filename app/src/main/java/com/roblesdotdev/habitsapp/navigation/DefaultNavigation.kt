@@ -13,10 +13,11 @@ import com.roblesdotdev.onboarding.presentation.OnboardingScreen
 @Composable
 fun DefaultNavigation(
     navController: NavHostController,
+    isCompleteOnboarding: Boolean,
 ) {
     NavHost(
         navController = navController,
-        startDestination = NavRoute.Onboarding,
+        startDestination = if (!isCompleteOnboarding) NavRoute.Onboarding else NavRoute.Auth,
     ) {
         onboardingGraph(navController)
         authGraph(navController)
@@ -28,7 +29,7 @@ private fun NavGraphBuilder.onboardingGraph(navController: NavHostController) {
     navigation<NavRoute.Onboarding>(
         startDestination = NavRoute.Onboarding.Overview
     ) {
-        composable<NavRoute.Onboarding.Overview>{
+        composable<NavRoute.Onboarding.Overview> {
             OnboardingScreen(
                 onCompleteOnboarding = {
                     navController.navigate(NavRoute.Auth) {
@@ -71,6 +72,6 @@ private fun NavGraphBuilder.habitsGraph(navController: NavHostController) {
     navigation<NavRoute.Habits>(
         startDestination = NavRoute.Habits.Overview
     ) {
-        composable<NavRoute.Habits.Overview> {  }
+        composable<NavRoute.Habits.Overview> { }
     }
 }
