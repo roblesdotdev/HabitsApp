@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.habits.android.feature.ui)
+    alias(libs.plugins.habits.android.hilt)
 }
 
 android {

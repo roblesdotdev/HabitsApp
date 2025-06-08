@@ -7,7 +7,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.roblesdotdev.auth.presentation.intro.IntroScreen
+import com.roblesdotdev.auth.presentation.intro.IntroScreenRoot
+import com.roblesdotdev.auth.presentation.login.LoginScreenRoot
 import com.roblesdotdev.onboarding.presentation.OnboardingScreen
 
 @Composable
@@ -48,7 +49,7 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
         startDestination = NavRoute.Auth.Intro
     ) {
         composable<NavRoute.Auth.Intro> {
-            IntroScreen(
+            IntroScreenRoot(
                 onLoginClick = {
                     navController.navigate(NavRoute.Auth.Login)
                 },
@@ -59,7 +60,11 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
         }
 
         composable<NavRoute.Auth.Login> {
-            Text("Login")
+            LoginScreenRoot(
+                onNavigateToRegister = {
+                    navController.navigate(NavRoute.Auth.Register)
+                }
+            )
         }
 
         composable<NavRoute.Auth.Register> {
