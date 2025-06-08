@@ -3,8 +3,8 @@ package com.roblesdotdev.habitsapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import com.roblesdotdev.core.presentation.designsystem.HabitsAppTheme
 import com.roblesdotdev.habitsapp.navigation.DefaultNavigation
@@ -12,12 +12,17 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    val mainViewModel by viewModels<MainViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        installSplashScreen().apply {
+            setKeepOnScreenCondition {
+                mainViewModel.state.isLoading
+            }
+        }
         setContent {
             val navController = rememberNavController()
-            val mainViewModel by viewModels<MainViewModel>()
             HabitsAppTheme {
                 if (!mainViewModel.state.isLoading) {
                     DefaultNavigation(
