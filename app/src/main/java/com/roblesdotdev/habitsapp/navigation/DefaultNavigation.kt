@@ -1,6 +1,5 @@
 package com.roblesdotdev.habitsapp.navigation
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -9,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.roblesdotdev.auth.presentation.intro.IntroScreenRoot
 import com.roblesdotdev.auth.presentation.login.LoginScreenRoot
+import com.roblesdotdev.auth.presentation.register.RegisterScreenRoot
 import com.roblesdotdev.onboarding.presentation.OnboardingScreen
 
 @Composable
@@ -62,13 +62,29 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
         composable<NavRoute.Auth.Login> {
             LoginScreenRoot(
                 onNavigateToRegister = {
-                    navController.navigate(NavRoute.Auth.Register)
+                    navController.navigate(NavRoute.Auth.Register) {
+                        popUpTo(NavRoute.Auth.Login) {
+                            inclusive = true
+                            saveState = true
+                        }
+                        restoreState = true
+                    }
                 }
             )
         }
 
         composable<NavRoute.Auth.Register> {
-            Text("Register")
+            RegisterScreenRoot(
+                onLoginClick = {
+                    navController.navigate(NavRoute.Auth.Login) {
+                        popUpTo(NavRoute.Auth.Register) {
+                            inclusive = true
+                            saveState = true
+                        }
+                        restoreState = true
+                    }
+                }
+            )
         }
     }
 }

@@ -5,4 +5,7 @@ data class LoginUIState(
     val password: String = "",
     val showPassword: Boolean = false,
     val isSubmitting: Boolean = false,
-)
+) {
+    val canSubmit: Boolean
+        get() = !isSubmitting
+}

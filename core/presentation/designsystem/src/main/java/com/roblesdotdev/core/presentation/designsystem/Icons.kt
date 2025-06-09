@@ -11,3 +11,11 @@ val EyeClosedIcon: ImageVector
 val EyeOpenIcon: ImageVector
     @Composable
     get() = ImageVector.vectorResource(id = R.drawable.eye_open)
+
+val CheckIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(id = R.drawable.check)
+
+val CrossIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(id = R.drawable.cross)
