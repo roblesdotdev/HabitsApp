@@ -35,6 +35,7 @@ fun RegisterForm(
             value = state.email,
             onValueChange = { onAction(RegisterUIAction.OnChangeEmail(it)) },
             placeholder = stringResource(R.string.email_placeholder),
+            isValidEmail = state.isValidEmail
         )
         PasswordTextField(
             value = state.password,
@@ -68,11 +69,11 @@ fun RegisterForm(
         )
         PasswordRequirement(
             text = "Include at least one number",
-            isValid = state.passwordValidationState.hasNumber
+            isValid = state.passwordValidationState.hasDigit
         )
         PasswordRequirement(
             text = "Include at least one special character",
-            isValid = state.passwordValidationState.hasSpecialChar
+            isValid = state.passwordValidationState.hasSpecialCharacter
         )
         Spacer(Modifier.height(8.dp))
         PrimaryButton(

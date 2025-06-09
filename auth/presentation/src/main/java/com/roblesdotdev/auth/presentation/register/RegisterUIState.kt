@@ -6,9 +6,10 @@ data class RegisterUIState(
     val email: String = "",
     val password: String = "",
     val showPassword: Boolean = false,
+    val isValidEmail: Boolean = false,
     val passwordValidationState: PasswordValidationState = PasswordValidationState(),
     val isSubmitting: Boolean = false,
 ) {
     val canSubmit: Boolean
-        get() = passwordValidationState.isValidPassword && !isSubmitting
+        get() = isValidEmail && passwordValidationState.isValidPassword && !isSubmitting
 }
