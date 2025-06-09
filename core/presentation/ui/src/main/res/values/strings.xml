@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_disk_full">Your disk is full.</string>
+    <string name="error_unknown">Unknown error occurred.</string>
+    <string name="error_no_internet">Please check your connection.</string>
+    <string name="error_request_timeout">Request timed out.</string>
+    <string name="error_rate_limit">You\'ve hit your rate limit.</string>
+    <string name="error_serialization">Opps! Coulndn\'t parse data.</string>
+    <string name="error_server_error">Opps! Something went wrong, try again.</string>
+</resources>
