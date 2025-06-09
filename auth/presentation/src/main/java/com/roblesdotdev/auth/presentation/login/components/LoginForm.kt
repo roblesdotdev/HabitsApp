@@ -43,6 +43,7 @@ fun LoginForm(
             value = state.email,
             onValueChange = { onAction(LoginUIAction.OnChangeEmail(it)) },
             placeholder = stringResource(R.string.email_placeholder),
+            isValidEmail = state.isValidEmail
         )
         PasswordTextField(
             value = state.password,
