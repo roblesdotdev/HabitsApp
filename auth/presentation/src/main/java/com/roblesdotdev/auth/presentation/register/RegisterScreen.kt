@@ -1,13 +1,10 @@
-package com.roblesdotdev.auth.presentation.login
+package com.roblesdotdev.auth.presentation.register
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -16,22 +13,23 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.roblesdotdev.auth.domain.PasswordValidationState
 import com.roblesdotdev.auth.presentation.R
 import com.roblesdotdev.auth.presentation.components.AnnotatedClickableText
 import com.roblesdotdev.auth.presentation.components.SectionHeader
-import com.roblesdotdev.auth.presentation.login.components.LoginForm
+import com.roblesdotdev.auth.presentation.register.components.RegisterForm
 import com.roblesdotdev.core.presentation.designsystem.HabitsAppTheme
 
 @Composable
-fun LoginScreenRoot(
-    viewModel: LoginScreenViewModel = hiltViewModel(),
-    onNavigateToRegister: () -> Unit,
+fun RegisterScreenRoot(
+    onLoginClick: () -> Unit,
+    viewModel: RegisterViewModel = hiltViewModel()
 ) {
-    LoginScreen(
+    RegisterScreen(
         state = viewModel.state,
         onAction = { action ->
             when (action) {
-                LoginUIAction.OnRegisterClick -> onNavigateToRegister()
+                RegisterUIAction.OnLoginClick -> onLoginClick()
                 else -> viewModel.onAction(action)
             }
         }
@@ -39,15 +37,11 @@ fun LoginScreenRoot(
 }
 
 @Composable
-fun LoginScreen(
-    state: LoginUIState,
-    onAction: (LoginUIAction) -> Unit
+fun RegisterScreen(
+    state: RegisterUIState,
+    onAction: (RegisterUIAction) -> Unit
 ) {
-    Scaffold(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
-    ) { innerPadding ->
+    Scaffold { innerPadding ->
         Column(
             modifier = Modifier
                 .padding(innerPadding)
@@ -57,18 +51,18 @@ fun LoginScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             SectionHeader(
-                title = R.string.login_title,
-                subtitle = R.string.login_subtitle,
+                title = R.string.register_title,
+                subtitle = R.string.register_subtitle,
             )
             Spacer(Modifier.height(32.dp))
-            LoginForm(
+            RegisterForm(
                 state = state,
-                onAction = onAction,
+                onAction = onAction
             )
             AnnotatedClickableText(
-                normalText = stringResource(R.string.dont_have_an_account),
-                clickableText = stringResource(R.string.sign_up),
-                onClick = { onAction(LoginUIAction.OnRegisterClick)}
+                normalText = stringResource(R.string.alredy_have_an_account),
+                clickableText = stringResource(R.string.sign_in),
+                onClick = { onAction(RegisterUIAction.OnLoginClick) }
             )
         }
     }
@@ -76,11 +70,15 @@ fun LoginScreen(
 
 @Preview
 @Composable
-private fun LoginContentPreview() {
+private fun RegisterScreenPreview() {
     HabitsAppTheme {
-        LoginScreen(
-            state = LoginUIState(),
-            onAction = {},
+        RegisterScreen(
+            state = RegisterUIState(
+                passwordValidationState = PasswordValidationState(
+                    hasMinLength = true
+                )
+            ),
+            onAction = {}
         )
     }
 }
