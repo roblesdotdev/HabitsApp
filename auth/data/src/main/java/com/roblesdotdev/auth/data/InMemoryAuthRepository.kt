@@ -1,13 +1,17 @@
 package com.roblesdotdev.auth.data
 
 import com.roblesdotdev.auth.domain.AuthRepository
+import com.roblesdotdev.core.domain.session.SessionInfo
+import com.roblesdotdev.core.domain.session.SessionStorage
 import com.roblesdotdev.core.domain.util.DataError
 import com.roblesdotdev.core.domain.util.EmptyResult
 import com.roblesdotdev.core.domain.util.Result
 import com.roblesdotdev.core.domain.util.asEmptyResult
 import kotlinx.coroutines.delay
 
-class InMemoryAuthRepository : AuthRepository {
+class InMemoryAuthRepository(
+    private val sessionStorage: SessionStorage
+) : AuthRepository {
     private val users = mutableMapOf<String, String>()
     override suspend fun login(
         email: String,
@@ -18,6 +22,11 @@ class InMemoryAuthRepository : AuthRepository {
             storedPassword == null -> Result.Failure(DataError.Network.UNAUTHORIZED)
             storedPassword != password -> Result.Failure(DataError.Network.UNAUTHORIZED)
             else -> Result.Success(Unit)
+        }
+        if (result is Result.Success) {
+           sessionStorage.set(
+               SessionInfo(userId = "fakeId")
+           )
         }
         delay(500)
         return result.asEmptyResult()

@@ -15,10 +15,16 @@ import com.roblesdotdev.onboarding.presentation.OnboardingScreen
 fun DefaultNavigation(
     navController: NavHostController,
     isCompleteOnboarding: Boolean,
+    isLoggedIn: Boolean,
 ) {
+    val startDestination = when {
+        isLoggedIn -> NavRoute.Habits
+        isCompleteOnboarding -> NavRoute.Auth
+        else -> NavRoute.Onboarding
+    }
     NavHost(
         navController = navController,
-        startDestination = if (!isCompleteOnboarding) NavRoute.Onboarding else NavRoute.Auth,
+        startDestination = startDestination,
     ) {
         onboardingGraph(navController)
         authGraph(navController)
