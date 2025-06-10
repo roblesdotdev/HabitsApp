@@ -27,7 +27,8 @@ class MainActivity : ComponentActivity() {
                 if (!mainViewModel.state.isLoading) {
                     DefaultNavigation(
                         navController = navController,
-                        isCompleteOnboarding = mainViewModel.state.isCompleteOnboarding
+                        isCompleteOnboarding = mainViewModel.state.isCompleteOnboarding,
+                        isLoggedIn = mainViewModel.state.isLoggedIn,
                     )
                 }
             }

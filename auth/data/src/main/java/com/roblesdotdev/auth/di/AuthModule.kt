@@ -5,6 +5,7 @@ import com.roblesdotdev.auth.data.InMemoryAuthRepository
 import com.roblesdotdev.auth.domain.AuthRepository
 import com.roblesdotdev.auth.domain.PatternValidator
 import com.roblesdotdev.auth.domain.UserDataValidator
+import com.roblesdotdev.core.domain.session.SessionStorage
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,7 +31,9 @@ object AuthModule {
 
     @Provides
     @Singleton
-    fun provideAuthRepository(): AuthRepository {
-       return InMemoryAuthRepository()
+    fun provideAuthRepository(
+        sessionStorage: SessionStorage
+    ): AuthRepository {
+       return InMemoryAuthRepository(sessionStorage)
     }
 }
