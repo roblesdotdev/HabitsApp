@@ -1,5 +1,6 @@
 package com.roblesdotdev.auth.presentation.login
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,6 +13,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -21,12 +24,38 @@ import com.roblesdotdev.auth.presentation.components.AnnotatedClickableText
 import com.roblesdotdev.auth.presentation.components.SectionHeader
 import com.roblesdotdev.auth.presentation.login.components.LoginForm
 import com.roblesdotdev.core.presentation.designsystem.HabitsAppTheme
+import com.roblesdotdev.core.presentation.ui.ObserveAsEvent
 
 @Composable
 fun LoginScreenRoot(
     viewModel: LoginScreenViewModel = hiltViewModel(),
     onNavigateToRegister: () -> Unit,
+    onLoginSuccess: () -> Unit,
 ) {
+    val context = LocalContext.current
+    val keyboardController = LocalSoftwareKeyboardController.current
+    ObserveAsEvent(viewModel.events) { event ->
+        when (event) {
+            is LoginUIEvent.Error -> {
+                keyboardController?.hide()
+                Toast.makeText(
+                    context,
+                    event.error.asString(context),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            LoginUIEvent.LoginSuccess -> {
+                keyboardController?.hide()
+                Toast.makeText(
+                    context,
+                    R.string.login_success,
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                onLoginSuccess()
+            }
+        }
+    }
     LoginScreen(
         state = viewModel.state,
         onAction = { action ->

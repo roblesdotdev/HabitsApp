@@ -1,6 +1,8 @@
 package com.roblesdotdev.auth.di
 
 import com.roblesdotdev.auth.data.EmailPatternValidator
+import com.roblesdotdev.auth.data.InMemoryAuthRepository
+import com.roblesdotdev.auth.domain.AuthRepository
 import com.roblesdotdev.auth.domain.PatternValidator
 import com.roblesdotdev.auth.domain.UserDataValidator
 import dagger.Module
@@ -24,5 +26,11 @@ object AuthModule {
         patternValidator: PatternValidator
     ): UserDataValidator {
        return UserDataValidator(patternValidator = patternValidator)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAuthRepository(): AuthRepository {
+       return InMemoryAuthRepository()
     }
 }
