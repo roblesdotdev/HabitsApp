@@ -13,4 +13,8 @@
     <string name="register_subtitle">Please fill in the details to get started.</string>
     <string name="confirm_password_placeholder">Confirm your password</string>
     <string name="alredy_have_an_account">Already have an account?</string>
+    <string name="error_invalid_credentials">The email or password are incorrect.</string>
+    <string name="login_success">You\'re logged in.</string>
+    <string name="registration_success">Registration successful! You can log in now!</string>
+    <string name="error_email_exists">A user with that email already exists!</string>
 </resources>

@@ -61,6 +61,13 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
 
         composable<NavRoute.Auth.Login> {
             LoginScreenRoot(
+                onLoginSuccess = {
+                    navController.navigate(NavRoute.Habits) {
+                        popUpTo(NavRoute.Auth) {
+                            inclusive = true
+                        }
+                    }
+                },
                 onNavigateToRegister = {
                     navController.navigate(NavRoute.Auth.Register) {
                         popUpTo(NavRoute.Auth.Login) {
@@ -83,6 +90,9 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
                         }
                         restoreState = true
                     }
+                },
+                onRegisterSuccess = {
+                    navController.navigate(NavRoute.Auth.Login)
                 }
             )
         }
