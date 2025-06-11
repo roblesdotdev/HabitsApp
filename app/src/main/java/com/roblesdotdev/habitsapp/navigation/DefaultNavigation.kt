@@ -17,7 +17,7 @@ fun DefaultNavigation(
     isCompleteOnboarding: Boolean,
     isLoggedIn: Boolean,
 ) {
-    val startDestination = when {
+    val startDestination: Any = when {
         isLoggedIn -> NavRoute.Habits
         isCompleteOnboarding -> NavRoute.Auth
         else -> NavRoute.Onboarding
@@ -98,7 +98,11 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
                     }
                 },
                 onRegisterSuccess = {
-                    navController.navigate(NavRoute.Auth.Login)
+                    navController.navigate(NavRoute.Habits) {
+                        popUpTo(NavRoute.Auth) {
+                            inclusive = true
+                        }
+                    }
                 }
             )
         }
