@@ -21,10 +21,12 @@ retrofit = "3.0.0"
 workManager = "2.10.1"
 desugar = "2.1.5"
 splashScreen = "1.0.1"
+googleServices = "4.4.2"
+firebaseBom = "33.15.0"
 
 # Project config
 projectVersionName = "1.0"
-projectApplicationId = "com.roblesdotdev.habits"
+projectApplicationId = "com.roblesdotdev.habitsapp"
 projectMinSdkVersion = "24"
 projectCompileSdkVersion = "35"
 projectTargetSdkVersion = "35"
@@ -63,6 +65,8 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit
 retrofit-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workManager" }
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashScreen" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx"}
 
 # complileOnly
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
@@ -80,6 +84,7 @@ google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 androidx-room = { id = "androidx.room", version.ref = "room" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref ="hilt" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
 
 # Convention plugins
 habits-android-application = { id = "habits.android.application", version = "unespecified" }

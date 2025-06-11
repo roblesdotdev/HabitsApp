@@ -10,6 +10,8 @@ android {
 dependencies {
 
     implementation(libs.androidx.datastore.preferences)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth.ktx)
 
     // Modules
     implementation(projects.core.domain)

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.habits.android.application.compose)
     alias(libs.plugins.habits.android.hilt)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.gms.google.services)
 }
 
 android {
@@ -38,6 +39,7 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
 
     // Modules
     implementation(projects.core.domain)

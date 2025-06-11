@@ -5,7 +5,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStoreFile
-import com.roblesdotdev.core.data.auth.FakeSessionStorage
+import com.roblesdotdev.core.data.auth.FirebaseSessionStorage
 import com.roblesdotdev.core.data.preferences.DefaultUserPreferences
 import com.roblesdotdev.core.domain.preferences.UserPreferences
 import com.roblesdotdev.core.domain.session.SessionStorage
@@ -40,6 +40,6 @@ object CoreModule {
     @Provides
     @Singleton
     fun provideSessionStorage(): SessionStorage {
-        return FakeSessionStorage()
+        return FirebaseSessionStorage()
     }
 }

@@ -8,6 +8,8 @@ android {
 }
 
 dependencies {
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth.ktx)
 
     // Modules
     implementation(projects.core.domain)
