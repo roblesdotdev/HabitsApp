@@ -2,4 +2,5 @@
 <resources>
     <string name="habits_overview_title">Daily Habits</string>
     <string name="settings">Settings</string>
+    <string name="add_habit">Add habit</string>
 </resources>
