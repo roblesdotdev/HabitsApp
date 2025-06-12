@@ -9,6 +9,7 @@ import androidx.navigation.navigation
 import com.roblesdotdev.auth.presentation.intro.IntroScreenRoot
 import com.roblesdotdev.auth.presentation.login.LoginScreenRoot
 import com.roblesdotdev.auth.presentation.register.RegisterScreenRoot
+import com.roblesdotdev.habits.presentation.overview.OverviewScreenRoot
 import com.roblesdotdev.onboarding.presentation.OnboardingScreen
 
 @Composable
@@ -113,6 +114,11 @@ private fun NavGraphBuilder.habitsGraph(navController: NavHostController) {
     navigation<NavRoute.Habits>(
         startDestination = NavRoute.Habits.Overview
     ) {
-        composable<NavRoute.Habits.Overview> { }
+        composable<NavRoute.Habits.Overview> {
+            OverviewScreenRoot(
+                onNavigateToSettings = {
+                }
+            )
+        }
     }
 }
