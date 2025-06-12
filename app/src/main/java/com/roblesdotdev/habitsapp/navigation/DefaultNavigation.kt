@@ -117,6 +117,10 @@ private fun NavGraphBuilder.habitsGraph(navController: NavHostController) {
         composable<NavRoute.Habits.Overview> {
             OverviewScreenRoot(
                 onNavigateToSettings = {
+
+                },
+                onNavigateToDetail = {
+
                 }
             )
         }

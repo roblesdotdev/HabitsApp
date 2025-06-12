@@ -13,8 +13,8 @@ fun CurrentDate(
     date: String,
 ) {
     Text(
-        modifier = modifier.fillMaxWidth(),
         text = date,
+        modifier = modifier.fillMaxWidth(),
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurfaceVariant,
         textAlign = TextAlign.Center
