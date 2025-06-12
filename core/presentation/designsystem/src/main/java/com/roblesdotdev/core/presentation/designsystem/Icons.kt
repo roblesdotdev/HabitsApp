@@ -19,3 +19,7 @@ val CheckIcon: ImageVector
 val CrossIcon: ImageVector
     @Composable
     get() = ImageVector.vectorResource(id = R.drawable.cross)
+
+val SettingsIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(id = R.drawable.settings)
