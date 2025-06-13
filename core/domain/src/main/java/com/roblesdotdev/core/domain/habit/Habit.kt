@@ -1,5 +1,10 @@
 package com.roblesdotdev.core.domain.habit
 
+import java.time.DayOfWeek
+import java.time.LocalDate
+import java.time.LocalTime
+import java.time.ZonedDateTime
+
 /**
  * Represents a user-defined habit.
  *
@@ -21,8 +26,8 @@ data class Habit(
     val id: String?,
     val name: String,
     val category: String,
-    val frequency: List<Int>,
-    val completedDates: List<Long>,
-    val reminder: Long,
-    val startDate: Long,
+    val frequency: List<DayOfWeek>,
+    val completedDates: List<LocalDate>,
+    val reminder: LocalTime,
+    val startDate: ZonedDateTime,
 )

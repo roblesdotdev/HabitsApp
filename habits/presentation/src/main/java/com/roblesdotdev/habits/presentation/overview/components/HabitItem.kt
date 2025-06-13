@@ -17,8 +17,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.roblesdotdev.core.domain.habit.Habit
 import com.roblesdotdev.core.presentation.designsystem.components.CheckBox
-import com.roblesdotdev.habits.data.extension.toStartOfDateTimestamp
-import com.roblesdotdev.habits.data.extension.toZonedDateTime
 import java.time.LocalDate
 
 @Composable
@@ -61,9 +59,7 @@ fun HabitItem(
                 )
             }
             CheckBox(
-                isChecked = habit.completedDates.contains(
-                    selectedDate.toZonedDateTime().toStartOfDateTimestamp()
-                ),
+                isChecked = habit.completedDates.contains(selectedDate),
                 onCheckedChange = {
                     toggleComplete()
                 }

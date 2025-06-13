@@ -1,12 +1,10 @@
 package com.roblesdotdev.habits.data
 
 import com.roblesdotdev.core.domain.habit.Habit
-import com.roblesdotdev.habits.data.extension.toStartOfDateTimestamp
-import com.roblesdotdev.habits.data.extension.toTimeStamp
-import com.roblesdotdev.habits.data.extension.toZonedDateTime
 import com.roblesdotdev.habits.domain.HabitsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
+import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.ZonedDateTime
@@ -18,20 +16,21 @@ class InMemoryHabitsRepository: HabitsRepository {
         if (it % 2 == 0) {
             dates.add(LocalDate.now())
         }
-        val randomFrequency = List(Random.nextInt(1, 8)) { Random.nextInt(0, 8) }
+        val randomFrequency = List(Random.nextInt(1, 8)) { Random.nextInt(1, 8) }
+        val daysOfWeek = randomFrequency.map { DayOfWeek.of(it) }
 
         Habit(
             id = "$it",
             name = "Habit $it",
             category = "Category for $it",
-            completedDates = dates.map { date -> date.toZonedDateTime().toStartOfDateTimestamp() },
-            reminder = LocalTime.now().toZonedDateTime().toTimeStamp(),
-            startDate = ZonedDateTime.now().toStartOfDateTimestamp(),
-            frequency = randomFrequency,
+            completedDates = dates,
+            reminder = LocalTime.now(),
+            startDate = ZonedDateTime.now(),
+            frequency = daysOfWeek,
         )
     }.toMutableList()
 
-    override fun getHabitsForSelectedDate(date: Long): Flow<List<Habit>> {
+    override fun getHabitsForSelectedDate(date: ZonedDateTime): Flow<List<Habit>> {
         return flowOf(mockHabits)
     }
 

@@ -1,4 +1,4 @@
-package com.roblesdotdev.habits.data.extension
+package com.roblesdotdev.core.domain.extension
 
 import java.time.Instant
 import java.time.LocalDate

@@ -8,5 +8,5 @@ sealed interface OverviewUIAction {
     data object NavigateToSettings: OverviewUIAction
     data class NavigateToDetail(val id: String?): OverviewUIAction
     data class ChangeSelectedDate(val date: ZonedDateTime): OverviewUIAction
-    data class ToggleComplete(val habit: Habit, val date: LocalDate): OverviewUIAction
+    data class ToggleComplete(val habit: Habit): OverviewUIAction
 }

@@ -112,7 +112,6 @@ fun OverviewScreen(
                         onAction(
                             OverviewUIAction.ToggleComplete(
                                 habit = habit,
-                                date = state.selectedDate.toLocalDate()
                             )
                         )
                     }
