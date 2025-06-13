@@ -51,7 +51,7 @@ dependencies {
     implementation(projects.auth.domain)
     implementation(projects.auth.data)
     implementation(projects.auth.presentation)
-    implementation(projects.habits.domain)
     implementation(projects.habits.data)
+    implementation(projects.habits.domain)
     implementation(projects.habits.presentation)
 }

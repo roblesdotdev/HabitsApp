@@ -107,10 +107,14 @@ fun OverviewScreen(
                     onClick = {
                         onAction(OverviewUIAction.NavigateToDetail(habit.id))
                     },
+                    selectedDate = state.selectedDate.toLocalDate(),
                     toggleComplete = {
-                        habit.id?.let {
-                            onAction(OverviewUIAction.ToggleComplete(it))
-                        }
+                        onAction(
+                            OverviewUIAction.ToggleComplete(
+                                habit = habit,
+                                date = state.selectedDate.toLocalDate()
+                            )
+                        )
                     }
                 )
             }
