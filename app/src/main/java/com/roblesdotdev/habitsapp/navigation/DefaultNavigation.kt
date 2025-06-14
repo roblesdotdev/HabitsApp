@@ -6,9 +6,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import androidx.navigation.toRoute
 import com.roblesdotdev.auth.presentation.intro.IntroScreenRoot
 import com.roblesdotdev.auth.presentation.login.LoginScreenRoot
 import com.roblesdotdev.auth.presentation.register.RegisterScreenRoot
+import com.roblesdotdev.habits.presentation.detail.DetailScreenRoot
 import com.roblesdotdev.habits.presentation.overview.OverviewScreenRoot
 import com.roblesdotdev.onboarding.presentation.OnboardingScreen
 
@@ -120,7 +122,21 @@ private fun NavGraphBuilder.habitsGraph(navController: NavHostController) {
 
                 },
                 onNavigateToDetail = {
+                    navController.navigate(NavRoute.Habits.Detail(id = it))
+                }
+            )
+        }
 
+        composable<NavRoute.Habits.Detail> { backStackEntry ->
+            val args = backStackEntry.toRoute<NavRoute.Habits.Detail>()
+            DetailScreenRoot(
+                isEditMode = args.id != null,
+                onNavigateBack = {
+                    navController.navigate(NavRoute.Habits) {
+                        popUpTo(NavRoute.Habits) {
+                            inclusive = true
+                        }
+                    }
                 }
             )
         }

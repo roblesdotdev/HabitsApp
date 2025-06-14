@@ -25,5 +25,8 @@ sealed interface NavRoute {
     data object Habits {
         @Serializable
         data object Overview: NavRoute
+
+        @Serializable
+        data class Detail(val id: String?) : NavRoute
     }
 }

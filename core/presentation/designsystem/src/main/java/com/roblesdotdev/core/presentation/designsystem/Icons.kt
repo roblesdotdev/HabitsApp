@@ -27,3 +27,11 @@ val SettingsIcon: ImageVector
 val PlusIcon: ImageVector
     @Composable
     get() = ImageVector.vectorResource(id = R.drawable.plus)
+
+val ArrowLeftIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(id = R.drawable.arrow_left)
+
+val ChevronRightIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(id = R.drawable.chevron_right)
