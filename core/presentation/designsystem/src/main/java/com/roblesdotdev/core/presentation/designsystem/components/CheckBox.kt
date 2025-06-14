@@ -22,17 +22,15 @@ import com.roblesdotdev.core.presentation.designsystem.neutral10
 fun CheckBox(
     modifier: Modifier = Modifier,
     isChecked: Boolean,
-    onCheckedChange: () -> Unit
+    onCheckedChange: () -> Unit,
 ) {
     val containerColor = if (isChecked) MaterialTheme.colorScheme.primary else
         MaterialTheme.colorScheme.neutral10
     Box(
-        modifier = Modifier
+        modifier = modifier
             .clickable { onCheckedChange() }
-            .size(32.dp)
             .clip(MaterialTheme.shapes.small)
-            .background(containerColor)
-            .then(modifier),
+            .background(containerColor),
         contentAlignment = Alignment.Center,
     ) {
         if (isChecked) {

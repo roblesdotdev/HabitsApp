@@ -45,7 +45,7 @@ fun DefaultTextField(
 
     val placeholderComposable: (@Composable () -> Unit)? = placeholder?.let {
         @Composable {
-            Text(text = placeholder)
+            Text(text = placeholder, style = MaterialTheme.typography.bodyMedium)
         }
     }
 
