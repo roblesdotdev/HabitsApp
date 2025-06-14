@@ -9,4 +9,5 @@ sealed interface DetailUIAction {
     data class ChangeCategory(val category: String): DetailUIAction
     data class ChangeReminder(val reminder: LocalTime): DetailUIAction
     data class ToggleFrequencyDay(val dayOfWeek: DayOfWeek) : DetailUIAction
+    data object SaveHabit : DetailUIAction
 }

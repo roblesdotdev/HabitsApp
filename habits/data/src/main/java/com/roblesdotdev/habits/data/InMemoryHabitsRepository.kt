@@ -37,9 +37,14 @@ class InMemoryHabitsRepository: HabitsRepository {
     override suspend fun upsertHabit(habit: Habit) {
         val idx = mockHabits.indexOfFirst { it.id == habit.id }
         if (idx != -1) {
-            mockHabits[idx] = habit
+            mockHabits.removeAt(idx)
+            mockHabits.add(idx, habit)
         } else {
             mockHabits.add(habit)
         }
+    }
+
+    override suspend fun getHabitById(id: String): Habit {
+        return mockHabits.first { it.id == id }
     }
 }

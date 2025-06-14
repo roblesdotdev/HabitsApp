@@ -4,7 +4,9 @@ import com.roblesdotdev.habits.data.InMemoryHabitsRepository
 import com.roblesdotdev.habits.domain.HabitsRepository
 import com.roblesdotdev.habits.domain.HabitsUseCases
 import com.roblesdotdev.habits.domain.usecase.CompleteDateUseCase
+import com.roblesdotdev.habits.domain.usecase.GetHabitByIdUseCase
 import com.roblesdotdev.habits.domain.usecase.GetHabitsForDateUseCase
+import com.roblesdotdev.habits.domain.usecase.UpsertHabitUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,7 +27,9 @@ object HabitsModule {
     fun provideHabitsUseCases(repo: HabitsRepository): HabitsUseCases {
         return HabitsUseCases(
             completeDateUseCase = CompleteDateUseCase(repo),
-            getHabitsForDateUseCase = GetHabitsForDateUseCase(repo)
+            getHabitsForDateUseCase = GetHabitsForDateUseCase(repo),
+            getHabitByIdUseCase = GetHabitByIdUseCase(repo),
+            upsertHabitUseCase = UpsertHabitUseCase(repo)
         )
     }
 }
