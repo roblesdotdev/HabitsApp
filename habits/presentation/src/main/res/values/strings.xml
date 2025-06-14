@@ -10,4 +10,5 @@
     <string name="habit_category_placeholder">Habit Category</string>
     <string name="reminder">Reminder</string>
     <string name="select_time">Select Time</string>
+    <string name="saved_successfully">Saved successfully</string>
 </resources>

@@ -131,6 +131,13 @@ private fun NavGraphBuilder.habitsGraph(navController: NavHostController) {
             val args = backStackEntry.toRoute<NavRoute.Habits.Detail>()
             DetailScreenRoot(
                 isEditMode = args.id != null,
+                onCompleteSave = {
+                    navController.navigate(NavRoute.Habits) {
+                        popUpTo(NavRoute.Habits) {
+                            inclusive = true
+                        }
+                    }
+                },
                 onNavigateBack = {
                     navController.navigate(NavRoute.Habits) {
                         popUpTo(NavRoute.Habits) {
