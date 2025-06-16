@@ -6,7 +6,7 @@ import com.roblesdotdev.habits.domain.HabitsRepository
 class GetHabitByIdUseCase(
     private val repository: HabitsRepository
 ) {
-    suspend operator fun invoke(id: String): Habit {
+    suspend operator fun invoke(id: String): Habit? {
         return repository.getHabitById(id)
     }
 }

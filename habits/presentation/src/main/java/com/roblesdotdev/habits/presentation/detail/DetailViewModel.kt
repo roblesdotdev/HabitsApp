@@ -36,7 +36,7 @@ class DetailViewModel @Inject constructor(
 
     private fun loadCurrentHabit(id: String) {
         viewModelScope.launch {
-            val habit = useCases.getHabitByIdUseCase(id)
+            val habit = useCases.getHabitByIdUseCase(id) ?: return@launch
             state = state.copy(
                 id = habit.id,
                 name = habit.name,

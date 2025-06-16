@@ -23,7 +23,7 @@ import java.time.ZonedDateTime
  * stored as epoch milliseconds representing a ZonedDateTime (includes time zone context).
  */
 data class Habit(
-    val id: String?,
+    val id: String,
     val name: String,
     val category: String,
     val frequency: List<DayOfWeek>,
