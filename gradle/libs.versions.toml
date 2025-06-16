@@ -94,6 +94,7 @@ habits-android-library = { id = "habits.android.library", version = "unespecifie
 habits-android-library-compose = { id = "habits.android.library.compose", version = "unespecified" }
 habits-android-feature-ui = { id = "habits.android.feature.ui", version = "unespecified" }
 habits-android-hilt = { id = "habits.android.hilt", version = "unespecified" }
+habits-android-room = { id = "habits.android.room", version = "unespecified" }
 
 [bundles]
 compose = [
@@ -112,4 +113,8 @@ compose-debug = [
 hilt = [
     "hilt-core",
     "hilt-navigation-compose"
+]
+room = [
+    "room-runtime",
+    "room-ktx"
 ]
