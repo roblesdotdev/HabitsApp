@@ -1,6 +1,7 @@
 package com.roblesdotdev.habits.di
 
-import com.roblesdotdev.habits.data.InMemoryHabitsRepository
+import com.roblesdotdev.core.domain.habit.LocalHabitDataSource
+import com.roblesdotdev.habits.data.DefaultHabitsRepository
 import com.roblesdotdev.habits.domain.HabitsRepository
 import com.roblesdotdev.habits.domain.HabitsUseCases
 import com.roblesdotdev.habits.domain.usecase.CompleteDateUseCase
@@ -18,8 +19,8 @@ import javax.inject.Singleton
 object HabitsModule {
     @Provides
     @Singleton
-    fun provideHabitsRepository(): HabitsRepository {
-        return InMemoryHabitsRepository()
+    fun provideHabitsRepository(localDataSource: LocalHabitDataSource): HabitsRepository {
+        return DefaultHabitsRepository(localDataSource)
     }
 
     @Provides

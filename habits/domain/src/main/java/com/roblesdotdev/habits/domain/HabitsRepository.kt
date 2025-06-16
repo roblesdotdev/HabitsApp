@@ -7,5 +7,5 @@ import java.time.ZonedDateTime
 interface HabitsRepository {
     fun getHabitsForSelectedDate(date: ZonedDateTime): Flow<List<Habit>>
     suspend fun upsertHabit(habit: Habit)
-    suspend fun getHabitById(id: String): Habit
+    suspend fun getHabitById(id: String): Habit?
 }
