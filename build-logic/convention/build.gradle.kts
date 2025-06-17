@@ -45,5 +45,9 @@ gradlePlugin {
             id = "habits.android.room"
             implementationClass = "AndroidRoomConventionPlugin"
         }
+        register("jvmKtor") {
+            id = "habits.jvm.ktor"
+            implementationClass = "JvmKtorConventionPlugin"
+        }
     }
 }
