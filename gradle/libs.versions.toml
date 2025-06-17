@@ -23,6 +23,8 @@ desugar = "2.1.5"
 splashScreen = "1.0.1"
 googleServices = "4.4.2"
 firebaseBom = "33.15.0"
+ktor = "3.1.3"
+ktorClientLogging = "2.3.8"
 
 # Project config
 projectVersionName = "1.0"
@@ -67,6 +69,9 @@ androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashScreen" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx"}
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorClientLogging" }
 
 # complileOnly
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
@@ -95,6 +100,7 @@ habits-android-library-compose = { id = "habits.android.library.compose", versio
 habits-android-feature-ui = { id = "habits.android.feature.ui", version = "unespecified" }
 habits-android-hilt = { id = "habits.android.hilt", version = "unespecified" }
 habits-android-room = { id = "habits.android.room", version = "unespecified" }
+habits-jvm-ktor = { id = "habits.jvm.ktor", version = "unespecified" }
 
 [bundles]
 compose = [
@@ -117,4 +123,9 @@ hilt = [
 room = [
     "room-runtime",
     "room-ktx"
+]
+ktor = [
+    "ktor-client-core",
+    "ktor-client-cio",
+    "ktor-client-logging"
 ]
